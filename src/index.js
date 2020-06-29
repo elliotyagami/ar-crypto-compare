@@ -4,10 +4,12 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './containers/MainBlock';
 import * as serviceWorker from './serviceWorker';
-import store from './store'
+import store from './store';
 
 ReactDOM.render(
-    <Provider store={store}>
+  <Provider store={store}>
     <App />
-  </Provider>, document.getElementById('mainBlock'));
+  </Provider>,
+  document.getElementById('body'),
+);
 serviceWorker.unregister();
