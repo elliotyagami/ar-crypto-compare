@@ -22,7 +22,7 @@ class MainBlock extends Component {
             Clear
           </span>
         </div>
-        <div style={{ height: '20vh' }}>
+        <div style={{ height: '22vh' }}>
           {this.state.info ? (
             <div
               className="darker logEntry"
