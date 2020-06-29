@@ -1,6 +1,6 @@
-## Ar Crypto Compare
+## AR Crypto Compare
 
-This permaweb is built for arweave. It is useful for comparing prices of crypto to crypto, fiat or with arweave coin(AR). It can also be used for seeing data of transactions. It uses arweave js library for fetching the transaction.
+This permaweb is built for arweave. It is useful for comparing prices of crypto to crypto, fiat or with arweave coin(AR). It can also be used for seeing data of transactions. It uses arweave js library for fetching the transaction. The app is available at [link](https://arweave.net/aEc_vOu-gGzmOumwudZvaNQOFqacL6KmWuLw4_9nhAY).
 
 ## Use case Video
 
