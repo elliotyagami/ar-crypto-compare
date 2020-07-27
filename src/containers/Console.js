@@ -7,11 +7,23 @@ class MainBlock extends Component {
     super();
     this.state = { info: true };
   }
+  arweaveSaveSession() {}
+  arweaveLogin() {}
   render() {
     return (
       <div className="flexible col darker">
         <div className="pad" style={{ fontSize: '15px' }}>
           <span className="flexible">Log: Comparsion Between Currencies </span>
+          <span
+            className=" clickable"
+            onClick={() => {
+              // this.setState({ info: false });
+              this.arweaveSaveSession();
+            }}
+          >
+            Save session to arweave
+          </span>
+          <span></span>
           <span
             className=" clickable"
             onClick={() => {

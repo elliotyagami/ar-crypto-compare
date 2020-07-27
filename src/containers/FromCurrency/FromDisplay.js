@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
+import { connect } from 'react-redux';
 
 class FromInput extends Component {
   render() {
@@ -6,12 +8,41 @@ class FromInput extends Component {
       <div className="flexible paddedContainer darker">
         {this.props.fromCurrencies.map((ele, i) => (
           <div className="item darker" key={i}>
-            <span style={{ flex: '1 1 0%' }}>
+            {/* <span style={{ flex: '1 1 0%' }}>
               <span className="clickable">+</span>
-            </span>
+            </span> */}
             <span
               style={{ flex: '2 1 0%' }}
-              onClick={() => this.props.fromCurrency(ele)}
+              onClick={() => {
+                let _this = this;
+                if (this.props.web3 != null) {
+                  this.props.web3.eth.net.getNetworkType().then((networkID) => {
+                    if (networkID == 'main') {
+                      _this.props.fromCurrency(ele);
+                    } else {
+                      toast.error('Please switch to mainnet.', {
+                        position: 'bottom-right',
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      });
+                    }
+                  });
+                } else {
+                  toast.info('Connect with metamask to use.', {
+                    position: 'bottom-right',
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                }
+              }}
             >
               <span className="clickable">{ele}</span>
             </span>
@@ -27,5 +58,12 @@ class FromInput extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    web3: state.web3,
+  };
+};
 
-export default FromInput;
+const mapDispatchToProps = (dispatch) => {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FromInput);

@@ -19,7 +19,7 @@ class MainBlock extends Component {
   }
   render() {
     return (
-      <span className="flexible col">
+      <span className="flexible col limitHeight">
         <div className="pad" style={{ fontSize: '15px' }}>
           <span className="flexible">From</span>
           <span className="clickable">+</span>

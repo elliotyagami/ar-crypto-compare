@@ -47,7 +47,9 @@ body {
 .flexible {
   flex: 1;
 }
-
+.limitHeight {
+  height: 35vh;
+}
 .barelyFlexible {
   flex: 0.1;
 }
