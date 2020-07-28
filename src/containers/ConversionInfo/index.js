@@ -61,39 +61,36 @@ class ConversionInfo extends Component {
 
   renderConversionRate() {
     return (
-      <div className="darker col paddedContainer">
-        <div className="pad" style={{ fontSize: '16px' }}>
+      <div className="darker col paddedContainer" style={{ fontSize: '1.1em' }}>
+        <div className="pad">
           <span className="flexible toggled2">Converter</span>
           <span className="clickable" onClick={this.conversionLog.bind(this)}>
             +
           </span>
         </div>
-        <div className="pad" style={{ fontSize: '16px' }}>
+        <div className="pad">
           <span className="flexible">{this.props.from}</span>
           <input
             maxLength="25"
             className="extremelyFlexible clickable"
-            style={{ fontSize: '16px' }}
             value={this.state.from}
             onChange={this.changeTo.bind(this)}
           />
         </div>
-        <div className="pad" style={{ fontSize: '16px' }}>
+        <div className="pad">
           <span className="flexible">{this.props.to}</span>
           <input
             maxLength="25"
             className="extremelyFlexible clickable"
-            style={{ fontSize: '16px' }}
             value={this.state.to}
             onChange={this.changeFrom.bind(this)}
           />
         </div>
-        <div className="pad" style={{ fontSize: '16px' }}>
+        <div className="pad">
           <span className="flexible">Tag</span>
           <input
             maxLength="25"
             className="extremelyFlexible clickable"
-            style={{ fontSize: '16px' }}
             value={this.state.tag}
             onChange={this.changeTag.bind(this)}
           />
@@ -103,15 +100,15 @@ class ConversionInfo extends Component {
   }
   renderChainLinkTable() {
     return (
-      <div className="darker col paddedContainer">
-        <div className="pad" style={{ fontSize: '16px' }}>
-          <span className="flexible toggled2">Chainlink contracts</span>
+      <div className="darker col paddedContainer" style={{ fontSize: '1.1em' }}>
+        <div className="pad">
+          <span className="flexible toggled2">Chainlink Pair</span>
           <span className="highlyFlexible toggled2">Price</span>
           <span className="highlyFlexible toggled2">Last update Timestamp</span>
         </div>
         {this.state.contractDetails.map((contract, ind) => {
           return (
-            <div className="pad" style={{ fontSize: '16px' }} key={ind}>
+            <div className="pad" key={ind}>
               <span className="flexible">{contract.pairFlipped}</span>
               <span className="highlyFlexible clickable">{contract.price}</span>
               <span className="highlyFlexible clickable">{contract.ts}</span>
@@ -122,7 +119,7 @@ class ConversionInfo extends Component {
                 style={{ padding: '0' }}
               >
                 <img
-                  src="/link.png"
+                  src="link.png"
                   style={{ height: '1.5em', width: '1.5em' }}
                 />
               </a>
@@ -146,7 +143,7 @@ class ConversionInfo extends Component {
   render() {
     return (
       <span className="highlyFlexible col limitHeight">
-        <div className="pad" style={{ fontSize: '15px' }}>
+        <div className="pad">
           <span className="flexible">Currency Info</span>
         </div>
         <div className="flexible paddedContainer">

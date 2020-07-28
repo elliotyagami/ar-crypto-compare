@@ -141,7 +141,7 @@ class MainBlock extends Component {
       if (key === 'Username') username = value;
     });
     toast.info(
-      `Loaded session ${sessionTs} for ${this.state.username}`,
+      `Loaded session ${sessionTs} for ${username}`,
       getToastObj({
         position: 'top-center',
         autoClose: 8000,
@@ -153,13 +153,14 @@ class MainBlock extends Component {
     JSON.parse(data).forEach((row) => {
       this.props.addToConsole(row);
     });
-    document.getElementById('username').value = username;
+    this.setState({ username });
+    // document.getElementById('username').value = username;
     document.getElementById('username').disabled = true;
   }
   render() {
     return (
       <div className="flexible col darker">
-        <div className="pad" style={{ fontSize: '15px' }}>
+        <div className="pad">
           <span className="flexible">Log: Comparsion Between Currencies </span>
           <span
             style={{ margin: 'auto' }}
@@ -194,9 +195,9 @@ class MainBlock extends Component {
             id="username"
             width="48"
             className="clickable"
-            style={{ fontSize: '15px' }}
             placeholder="Enter your username..."
-            value={this.state.txID}
+            style={{ fontSize: '1.1em' }}
+            value={this.state.username}
             onChange={this.saveUserName.bind(this)}
           />
           <span></span>

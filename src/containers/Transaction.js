@@ -20,6 +20,10 @@ const link = {
 
 function getDate(ts) {
   var theDate = new Date(ts * 1000);
+  return theDate.toLocaleString();
+}
+function getDateLocal(ts) {
+  var theDate = new Date(ts * 1000);
   return theDate.toLocaleString('en-us', { timeZoneName: 'short' });
 }
 class TraderDetails extends Component {
@@ -150,6 +154,11 @@ class TraderDetails extends Component {
           });
         }),
       );
+      Object.keys(traders).forEach((k) => {
+        traders[k].sessions.sort(function (b, a) {
+          return a.sessionTs - b.sessionTs > 0 ? 1 : -1;
+        });
+      });
       this.setState({ traders });
     }
   }
@@ -162,7 +171,7 @@ class TraderDetails extends Component {
   render() {
     return (
       <div className="flexible col">
-        <div className="pad" style={{ fontSize: '15px', margin: '0 0 10px 0' }}>
+        <div className="pad" style={{ margin: '0 0 10px 0' }}>
           <span className="flexible">
             {this.state.logs.length == 0
               ? 'Social Trading'
@@ -172,7 +181,7 @@ class TraderDetails extends Component {
             <input
               width="48"
               className="clickable"
-              style={{ fontSize: '15px', flex: '.8' }}
+              style={{ fontSize: '1.1em', flex: '.8' }}
               placeholder="Provide the user ARweave id..."
               // value={this.state.txID}
               onChange={(e) => this.searchUser(e.target.value)}
@@ -211,7 +220,7 @@ class TraderDetails extends Component {
                   this.setSession(ele.sessionTs);
                 }}
               >
-                {getDate(ele.sessionTs)}
+                Session {getDate(ele.sessionTs)}
               </span>
             );
           })}
@@ -219,8 +228,6 @@ class TraderDetails extends Component {
         <div className="flexible">
           {this.state.logs.map((ele, i) => {
             if (ele.label || typeof ele.tag != undefined) {
-              console.log('ele', ele);
-
               return (
                 <div className="darker logEntry logHeight" key={i}>
                   <span className="toggled">
@@ -231,7 +238,7 @@ class TraderDetails extends Component {
                     <span>
                       <b>{ele.value}</b>
                     </span>
-                    {ele.date ? <span>{getDate(ele.date)}</span> : ''}
+                    {ele.date ? <span>{getDateLocal(ele.date)}</span> : ''}
                   </span>
                 </div>
               );
@@ -242,7 +249,6 @@ class TraderDetails extends Component {
           {this.state.logs.length == 0
             ? Object.keys(this.state.traders).map((traderID, i) => {
                 let traderDetails = this.state.traders[traderID];
-                console.log('id', traderID);
                 return (
                   <div
                     className="darker logEntry logHeight"

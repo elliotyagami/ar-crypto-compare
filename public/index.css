@@ -7,6 +7,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: rgb(15, 15, 20);
+  -ms-overflow-style: none;
+  font-size: 0.8em;
 }
 
 ::-webkit-scrollbar {
@@ -15,10 +17,6 @@ body {
 
 ::-webkit-scrollbar-button {
   display: none;
-}
-
-body {
-  -ms-overflow-style: none;
 }
 
 #mainBlock {

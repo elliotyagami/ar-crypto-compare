@@ -20,13 +20,12 @@ class MainBlock extends Component {
   render() {
     return (
       <span className="flexible col limitHeight">
-        <div className="pad" style={{ fontSize: '15px' }}>
+        <div className="pad" style={{ fontSize: '1.1em' }}>
           <span className="flexible">From</span>
           <span className="toggled">A</span>
           <input
             maxLength="8"
             className="clickable highlyFlexible"
-            style={{ fontSize: '15px' }}
             placeholder="Enter from currency..."
             value={this.state.from}
             onChange={this.getFrom.bind(this)}
