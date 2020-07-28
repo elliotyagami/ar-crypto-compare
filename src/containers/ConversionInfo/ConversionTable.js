@@ -13,15 +13,15 @@ class MainBlock extends Component {
     this.getContractName = this.getContractName.bind(this);
   }
   printConsole(attr) {
-    this.props.addToConsole({
-      label: attrToLabel[attr],
-      value:
-        attr != 'contractNames'
-          ? this.props.state[attr]
-          : this.getContractName(),
-      from: this.props.from,
-      to: this.props.to,
-    });
+    // this.props.addToConsole({
+    //   label: attrToLabel[attr],
+    //   value:
+    //     attr != 'contractNames'
+    //       ? this.props.state[attr]
+    //       : this.getContractName(),
+    //   from: this.props.from,
+    //   to: this.props.to,
+    // });
   }
   getContractName() {
     let names = '';

@@ -8,6 +8,15 @@ import Web3 from 'web3';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+let toastObj = {
+  position: 'bottom-right',
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+};
 class MainBlock extends Component {
   constructor() {
     super();
@@ -22,25 +31,9 @@ class MainBlock extends Component {
       web3.eth.net.getNetworkType().then((networkID) => {
         if (networkID == 'main') {
           _this.props.initWeb3(web3);
-          toast.success('Metamask connected.', {
-            position: 'bottom-right',
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.success('Metamask connected.', toastObj);
         } else {
-          toast.error('Please switch to mainnet.', {
-            position: 'bottom-right',
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          toast.error('Please switch to mainnet.', toastObj);
         }
       });
     }

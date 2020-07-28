@@ -12,6 +12,7 @@ class ConversionInfo extends Component {
       price: 0,
       from: 1,
       to: 0,
+      tag: '',
       contractDetails: [],
       lastUpdateTs: 0,
     };
@@ -42,19 +43,19 @@ class ConversionInfo extends Component {
       to: e.target.value,
     });
   }
+  changeTag(e) {
+    this.setState({
+      tag: e.target.value,
+    });
+  }
 
   conversionLog() {
     this.props.addToConsole({
       from: this.props.from,
       to: this.props.to,
-      value:
-        this.props.from +
-        ' ' +
-        this.state.from +
-        ' = ' +
-        this.props.to +
-        ' ' +
-        this.state.to,
+      value: `${this.props.from} ${this.state.from} (Price 1 ${this.props.from} = ${this.state.price} ${this.props.to})`,
+      tag: this.state.tag,
+      date: new Date().getTime() / 1000,
     });
   }
 
@@ -87,6 +88,16 @@ class ConversionInfo extends Component {
             onChange={this.changeFrom.bind(this)}
           />
         </div>
+        <div className="pad" style={{ fontSize: '16px' }}>
+          <span className="flexible">Tag</span>
+          <input
+            maxLength="25"
+            className="extremelyFlexible clickable"
+            style={{ fontSize: '16px' }}
+            value={this.state.tag}
+            onChange={this.changeTag.bind(this)}
+          />
+        </div>
       </div>
     );
   }
@@ -99,7 +110,6 @@ class ConversionInfo extends Component {
           <span className="highlyFlexible toggled2">Last update Timestamp</span>
         </div>
         {this.state.contractDetails.map((contract, ind) => {
-          console.log(contract);
           return (
             <div className="pad" style={{ fontSize: '16px' }} key={ind}>
               <span className="flexible">{contract.pairFlipped}</span>

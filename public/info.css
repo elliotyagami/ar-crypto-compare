@@ -1,71 +1,75 @@
 /* Styles for the Currency Info Pane */
 
-div.infoDisplayFlex
-{
-    display: flex;
-    padding: 0px;
+div.infoDisplayFlex {
+  display: flex;
+  padding: 0px;
 }
 
-div.infoDisplayFlex span
-{
-    text-align: center;
-    padding: 15px;
+div.infoDisplayFlex span {
+  text-align: center;
+  padding: 15px;
 }
 
 /* Symbol Span Styles */
-span.symbol
-{
-    flex: 2;
-    font-size: 30px;
+span.symbol {
+  flex: 2;
+  font-size: 30px;
 }
 
-span.nonSymbol
-{
-    border-left: 1px solid rgba(255,255,255,.1);
-    border-right: 1px solid rgba(255,255,255,.1);
-    flex: 1;
-    font-size: 20px;
+span.nonSymbol {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  font-size: 20px;
 }
 
 /* Table Styles */
-table
-{
-    width: 100%;
-    overflow: scroll;
+table {
+  width: 100%;
+  overflow: scroll;
 }
 
-tr
-{
-    display: flex;
+tr {
+  display: flex;
 }
 
-th
-{
-    flex: 1;
-    border-left:  1px solid rgba(255,255,255,.1);
-    font-weight: normal;
+th {
+  flex: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: normal;
 }
 
-th.value
-{
-    color: rgb(220,230,250);
+th.value {
+  color: rgb(220, 230, 250);
 }
 
 /* Log Entry Styles */
-.logEntry
-{
-    margin-top: 1px;
-    display: flex;
-    text-align: center;
+.logEntry {
+  margin-top: 4px;
+  display: flex;
+  text-align: center;
+}
+/* .logHeight {
+  height: 2em;
+} */
+
+.logEntry span {
+  /* margin: auto; */
+  flex: 1;
 }
 
-.logEntry span
-{
-    margin: 0px;
-    flex: 1;
+.logEntry span.dominant {
+  flex: 3;
 }
 
-.logEntry span.dominant
-{
-    flex: 2.56;
+.sessionBox {
+  padding: 2px;
+  margin: 10px;
+  flex: 1;
+}
+.sessionBox:hover {
+  background-color: rgb(80, 60, 96, 0.5);
+}
+.selected {
+  background-color: rgba(155, 61, 231, 1);
 }

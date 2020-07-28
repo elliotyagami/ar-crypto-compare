@@ -6,6 +6,8 @@ export default (state = initialState.arweave, action) => {
       return Object.assign({}, state, {
         txData: action.data,
       });
+    case 'SetArweave':
+      return action.data;
     default:
       return state;
   }
