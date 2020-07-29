@@ -1,28 +1,23 @@
 ## AR Crypto Compare
 
-This permaweb is built for arweave. It is useful for comparing prices of crypto to crypto, fiat or with arweave coin(AR). It can also be used for seeing data of transactions. It uses arweave js library for fetching the transaction. The app is available at [link](https://arweave.net/aEc_vOu-gGzmOumwudZvaNQOFqacL6KmWuLw4_9nhAY).
+This permaweb is built for arweave. AR crypto compare is a social trading platform, for learning from the strategies followed by expert traders and positions they take on different assets..The app is available at [link](https://arweave.net/9RW6PpHmBtSySBkwPoCa15dDGw7fHPh0SAroJx5_LnQ).
+
+It uses chainlink smart contract for fetching price of the pair. If there is no chainlink contract with price feed for that it combines different pairs for getting the price of the target.
+
+For example:
+
+```
+MANA/BTC: contract with price feed for this pair don't exist. But MANA/ETH, ETH/USD, BTC/USD contract exist, so it combines them to get the price of target pair. It also shows the last time when the price for each underlying contract was updated, and the timestamp of target asset is the minimum of all underlying asset.
+```
 
 ## Use case Video
 
-![video](assets/arweave.gif)
-
-## Interface (UX and UI)
-
-[![banner](assets/interface.png)](https://arweave.net/qT7HXcd0G8IOa1Bb-l5i8Z8CfxFVGigOG9N0sUrN6yM)
+[![youtube](assets/youtube.png)](https://www.youtube.com/watch?v=Tzh-nHvmP60)
 
 It provides a beautiful UI which is divided in 3 sections:
 
-- Currency drawer: For selecting `from` currency and `to` currency for comparing different indicators between them. Following indicators are available:
-  | Available indicators|
-  |------|
-  | Price |
-  | 24hr Open Price |
-  | 24hr % Change |
-  | 24hr Change |
-  | 24hr High |
-  | 24hr Low |
-  | Total 24hr Volume |
+- **Price fetch via chainlink contract**: Metamask is required to use injected web3. Ar-crypto-compare relies on metmask for fetching data from contracts. There is also a asset conversion and contract details subsection under this.
 
-- Log section: For logging useful indicators, while navigating to different currency pair.
+- **Log section**: Pairs' price that user want to monitoring , he can pin to this section. He can also load arweave for saving current session. This is useful for taking snapshots of your portfolio.
 
-- Transaction details: For viewing data embedded in the transaction.
+- **Social Trading**: Here , one can view the sessions or the portfolio of other users. By clicking or searching a specific user, the sessions or portfolio at different time of that users are loaded. Then one can view specific session he want to follow.
